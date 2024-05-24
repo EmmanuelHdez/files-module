@@ -1,0 +1,151 @@
+/*body {
+  font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+}*/
+
+
+#overlay-responsive {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; 
+  font-family:Inter;
+}
+
+#overlay-responsive .text-message {
+  color: black; 
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  padding: 0 50px;
+  margin-top: 15px;
+}
+
+
+@media only screen and (max-width: 767px) {
+  #overlay-responsive {
+    display: flex !important; 
+  }
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+   background-color: #fff;
+   height: 100vh;
+    position:relative;
+    width: 100vw;
+    min-height: 100vh;
+    font-family:Inter;
+    font-style: normal;
+    font-weight: 900;
+    color: #eee;   
+   background-repeat: no-repeat; 
+   overflow-x: hidden;
+  
+}
+  
+
+#root{
+  position:relative; 
+  width: 100%;
+  height:100%;
+  background-color: #fff;  
+} 
+
+
+
+
+.App-Logo > img{
+  
+   height: 100%;
+}
+
+
+
+
+.Deptos span{
+ /* border-bottom: 2px solid #151d3a;*/
+  margin: 0 10px
+}
+
+.Deptos{
+  width:100px;
+  display: flex; 
+  align-items: center;
+  justify-content:flex-start;
+  font-size:3em;
+  margin:0px 20px, 0, 10px;
+  cursor: pointer;
+  color:rgb(45, 87, 126);
+  transition: 0.2s;
+}
+
+.Deptos:hover{
+  color: rgba(149, 213, 243, 0.8);
+  }
+  
+
+.Deptos.activeAdmin{
+color: rgb(105, 157, 198);
+margin-bottom: 30px;
+}
+
+.Deptos>span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  } 
+ 
+
+.monitor-opt{
+  font-size: 40px;
+ margin: 0px 10px 0px 20px; 
+ color:rgb(45, 87, 126);
+ cursor: pointer;
+ transition: 0.2s;
+}
+.monitor-opt>span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.monitor-opt.active-monitor{
+  color: rgb(90, 171, 236);
+  margin-bottom: 30px;
+}
+
+
+
+
+
+
+.digital-font {
+  font-family: 'DigitalClock', sans-serif !important; 
+}
+@media (max-width: 1020px) {
+  .Deptos{
+    margin:0 ;
+  }
+ 
+}
+@media (max-width: 840px){
+.App-Logo{
+  align-self: flex-start;
+}
+.App-header {
+  flex-direction: column;
+}
+}

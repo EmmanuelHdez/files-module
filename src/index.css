@@ -1,13 +1,210 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .activeDash {
+    background-color:rgb(204, 229, 246);
+    color: rgb(128, 133, 137);
+   
+ }
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: Inter
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+.sensorContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F7F8FC;
+  height: 100vh;
+  width: 100vw;
+}
+.sensorContainer>div{
+  background-color: rgba(3, 3, 32, 1);
+  height: 80%;
+  width: 80%;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0px 0px 5px 8px rgba(0,0,0,0.5);
+}
+
+.relojContainer{
+  height: 500px;
+  width: 500px;
+  background-color: rgba(0, 0, 0, 1);
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(149, 175, 189, 0.35);
+}
+.relojContainer::before{
+  content: '';
+  height: 450px;
+  width: 450px;
+  background-color: rgba(149, 175, 189, 0.8);
+  position: absolute;
+ opacity: 0.5;
+  border-radius: 50%;
+   z-index: 100;
+  
+}
+.relojContainer::after{
+  content: var(--temp);
+  height: 250px;
+  width: 250px;
+  background-color: rgba(0, 0, 0, 1);
+  position: absolute;
+  font-size: 4em;
+  font-family: Iceland;
+  font-weight: bold;
+  border-radius: 50%;
+   z-index: 400;
+   left: 125px;
+   top: 125px;
+   color: #F7F8FC;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.triangle{
+  height: 500px;
+  width: 500px;
+  background-color: rgba(0, 0, 0, 1);
+  border-radius: 50%;
+  position: absolute;
+  clip-path: polygon(50px 100%, 250px 250px, 450px 100%);
+ z-index: 200;
+ color: #000;
+ 
+}
+.ticks{
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  position: absolute;
+  
+ z-index: 300;
+ color: #000;
+}
+.ticks> p{
+position: absolute;
+ height: 10px;
+  width: 10px;
+  background-color:rgba(0, 0, 0, 1);;
+  left: 245px;
+  top:  245px;
+  transform: rotateZ(calc((var(--angle))*1deg));
+  z-index: 200;
+  border-radius: 50%;
+  
+}
+
+.ticks > p > span{
+  position: absolute;
+  bottom: 165px;
+  color: #F7F8FC;
+  left: -27px;
+  z-index: 500;
+  transform: rotateZ(calc(-1*var(--angle)*1deg));
+  font-size: 2.5em;
+  font-family: Iceland;
+  font-weight: bold;
+}
+
+.ticks > p::before{
+  content: '';
+  position: absolute;
+  height: 250px;
+  width: 10px;
+  bottom: 0px;
+  left: 0px;
+  
+  background: linear-gradient(0deg,
+  rgba(0, 0, 0, 0.5) 0px, 
+  rgba(0, 0, 0, 0.5) 230px,
+  rgba(182, 193, 199, 1) 245px,
+  rgba(149, 175, 189, 0.35) 250px);
+  z-index: 4;
+  
+  }
+
+.niddle{
+  position: relative;
+  height: 10px;
+  width: 10px;
+  background-color:rgb(86, 16, 95) ;
+  
+  z-index: 1;
+}
+
+.niddle::before{
+content: '';
+position: absolute;
+height: 250px;
+width: 10px;
+bottom: 0px;
+left: 0px;
+background-color:rgba(182, 193, 199, 1);
+
+
+}
+
+.controls{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color:#f7f7fc ;
+  margin: 50px;
+  height: 300px;
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 2px 2px  rgb(124, 122, 122);
+}
+
+.indicator{
+  background-color:rgba(19, 29, 83, 0.2) ;
+  margin: 50px;
+  height: 50px;
+  width: 80px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  color: rgb(23, 141, 82);
+}
+.start-btn{
+  height: 40px;
+  width: 90px;
+  border-radius: 8px;
+  background-color:rgba(182, 193, 199, 0.3);
+  color: #F7F8FC;
+  font-size: 1.5em;
+  font-family: Iceland;
+  font-weight: bold;
+  position: absolute;
+  bottom: 50px;
+  left: 205px;
+  outline: none;
+  border: none;
+}
+.stop-btn{
+  background-color:#F12B2C;
+}
+.start-btn:hover{
+  cursor: pointer;
 }

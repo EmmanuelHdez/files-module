@@ -19,6 +19,7 @@ export function ModalFolder({data, close, setMessage}) {
       },
       [close],
     )
+    
     useEffect(() => {
         if(data) document.addEventListener('keydown', escClose, false)    
 

@@ -726,6 +726,17 @@ flex: 1 1 auto ;
   animation-name: indeterminate-progress-bar;
 }
 
+.determinate-progress-bar {
+  background-color: #3b82f6;
+  border-radius: 9999px;
+  height: 0.4rem;
+  width: 0;
+
+  transition: width 0.5s ease;
+}
+
+
+
 @keyframes indeterminate-progress-bar {
   from {
       left: -50%;

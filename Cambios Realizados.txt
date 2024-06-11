@@ -1,0 +1,13 @@
+Cambios Realizados
+Archivo: customControl.js
+Gestión de Formatos de Archivo: Se eliminó el paso de formatos como parámetros. En su lugar, se creó un mapa interno que asigna claves a los tipos de archivo y sus correspondientes formatos MIME.
+Estado de Carga de Imagen: Se agregó un estado imageLoaded utilizando useState para evitar errores relacionados con el cálculo de la altura del componente a la derecha.
+Migración de Lógica de Transformación: La lógica para transformar archivos en base64 se trasladó a un nuevo componente llamado fileUpload, lo que permite controlar de manera individual la conversión de cada archivo y trabajar de forma más especializada en cada componente.
+Validaciones Adicionales: Se añadieron validaciones para evitar archivos duplicados y para asegurar que el tamaño máximo de los archivos no supere los 10MB.
+Archivo: ModalFiles.js
+Barra de Progreso: Se incorporó una barra de progreso para que los usuarios puedan visualizar el tamaño total de los archivos que han subido.
+Archivo: reducer.js
+Nuevos Dispatches: Se añadieron tres dispatches nuevos para manejar eventos relacionados con ModalFiles.
+Archivo: Dashboard.js
+Nueva Clase de Estilos: Se añadió una nueva clase de estilos para gestionar el progreso de archivos en el componente ModalFiles.js.
+

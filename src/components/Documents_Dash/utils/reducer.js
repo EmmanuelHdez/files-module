@@ -39,10 +39,6 @@ export function documentsReducer(state, action) {
         selectedNumber: "",
     }; // DoNE
 
-    
-
-    
-
     case "ERROR_FETCH": {
       return {
         ...state,
@@ -96,8 +92,6 @@ export function documentsReducer(state, action) {
       };
     }
 
-    
-
     case "DISABLED_FILTER": {
       return { ...state, disabledFilter: action.payload };
     }
@@ -113,12 +107,24 @@ export function documentsReducer(state, action) {
     case "ERROR_LOADING_RECORDS": {
       return { ...state, errorIndividualRecords: true, errorRecordsMessage: action.payload};
     }
-    
-    
-    
-    
-    
-    
+
+    case"UPLOAD_IMAGES_BROWSER":{
+      return {...state,files2Upload:[...state.files2Upload,...action.payload]}
+    }
+
+    case "DELETE_BROWSER_IMAGES":{  
+      return {
+        ...state,
+        files2Upload: state.files2Upload.slice(0, action.payload).concat(state.files2Upload.slice(action.payload + 1))
+      };
+    }
+    case "DELETE_ALL_BROWSER_IMAGES":{  
+      return {
+        ...state,
+        files2Upload: []
+      };
+    }
+      
     default:
       return state;
   }

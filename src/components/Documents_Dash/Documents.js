@@ -37,8 +37,6 @@ export function Documents() {
   const searchInput = useRef(); 
 
 
-  
-
   useEffect(() => {
     if (state.inputValue !== "" && state.inputValue.length >= 3) {
       let stop = false;
@@ -90,14 +88,6 @@ export function Documents() {
       };
     }
   }, [state.displayListNames]);
-
-  const closeNewFolder = () => {
-    setModalNewFolder(false)
-  } 
-
-  const closeNewFiles = () => {
-    setModalNewFiles(false)
-  }
 
   const onInputChange = (e) => {
     let value = e.target.value;
@@ -227,10 +217,8 @@ export function Documents() {
                   
                   
 
-                  {modalNewFolder && <ModalFolder close={closeNewFolder}/>}
-                  {modalNewFiles && <ModalFiles close={closeNewFiles} files2Upload={state.files2Upload} dispatch={dispatch}/>}
-                  
-                  
+                  {modalNewFolder && <ModalFolder close={()=>setModalNewFolder(false)}/>}
+                  {modalNewFiles && <ModalFiles close={()=>setModalNewFiles(false)} files2Upload={state.files2Upload} dispatch={dispatch}/>}
                 </div>
               </div>
             </div>
